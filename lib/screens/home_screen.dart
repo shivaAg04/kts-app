@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:kts/widgets/past_events.dart';
+import 'package:kts/widgets/upcoming_events.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -59,18 +61,36 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             const Padding(
-              padding: const EdgeInsets.only(left: 10),
+              padding: EdgeInsets.only(left: 10),
               child: Align(
                 alignment: Alignment.topLeft,
                 child: Text(
                   "Upcoming Events",
                   style: TextStyle(
+                    color: Colors.white,
                     fontSize: 22.0,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
-            )
+            ),
+            UpcomingEvent(),
+            const Padding(
+              padding: EdgeInsets.only(left: 10),
+              child: Align(
+                alignment: Alignment.topLeft,
+                child: Text(
+                  "Past Events",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 22.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+            // past event
+            PastEvent(),
           ],
         ),
       ),
