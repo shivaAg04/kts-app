@@ -1,6 +1,9 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:kts/Repo/repo.dart';
+import 'package:kts/widgets/achievement.dart';
 import 'package:kts/widgets/past_events.dart';
 import 'package:kts/widgets/upcoming_events.dart';
 
@@ -14,6 +17,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.black,
       body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
             Align(
@@ -74,7 +78,26 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
-            UpcomingEvent(),
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: InkWell(
+                child: CachedNetworkImage(
+                  imageUrl:
+                      "https://drive.google.com/uc?export=view&id=${Repo.upcomingEventsList[0]}",
+                  placeholder: (context, url) => const Center(
+                    child: CircularProgressIndicator(
+                      color: Colors.white,
+                    ),
+                  ),
+                  errorWidget: (context, url, error) => Icon(
+                    Icons.error,
+                    color: Colors.white,
+                  ),
+                ),
+                onTap: () {},
+              ),
+            ),
+
             const Padding(
               padding: EdgeInsets.only(left: 10),
               child: Align(
@@ -89,8 +112,34 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
-            // past event
-            PastEvent(),
+            // // past event
+            SizedBox(
+              height: height * .3,
+              width: double.infinity,
+              child: PastEvent(),
+            ),
+
+            /// Achievements
+            const Padding(
+              padding: EdgeInsets.only(left: 10),
+              child: Align(
+                alignment: Alignment.topLeft,
+                child: Text(
+                  "Achievements",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 22.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+            // // past event
+            SizedBox(
+              height: height * .3,
+              width: double.infinity,
+              child: Achievemnet(),
+            )
           ],
         ),
       ),

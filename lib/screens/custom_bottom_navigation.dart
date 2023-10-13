@@ -1,15 +1,24 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:kts/Repo/repo.dart';
 import 'package:kts/const/fonts.dart';
 import 'package:kts/screens/home_screen.dart';
 import 'package:line_icons/line_icons.dart';
 
-class Example extends StatefulWidget {
+class CustomBottomBar extends StatefulWidget {
   @override
-  _ExampleState createState() => _ExampleState();
+  _CustomBottomBarState createState() => _CustomBottomBarState();
 }
 
-class _ExampleState extends State<Example> {
+class _CustomBottomBarState extends State<CustomBottomBar> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    Repo.fetchUpcomingEventsData();
+  }
+
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.w600);

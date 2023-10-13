@@ -43,6 +43,7 @@ dependencies:
   line_icons: ^2.0.3
   scroll_loop_auto_scroll: ^0.0.5
   cloud_firestore: ^4.9.3
+  cached_network_image: ^3.3.0
 
 dev_dependencies:
   flutter_test:

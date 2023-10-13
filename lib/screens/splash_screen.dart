@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:kts/Repo/repo.dart';
 import 'package:kts/screens/home_screen.dart';
 import 'package:lottie/lottie.dart';
 
@@ -16,6 +17,8 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    Repo.fetchUpcomingEventsData();
+    Repo.fetchPastData();
     Timer(Duration(seconds: 3), () {
       Navigator.push(
         context,
