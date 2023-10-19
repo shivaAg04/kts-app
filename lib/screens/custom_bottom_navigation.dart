@@ -4,6 +4,8 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:kts/Repo/repo.dart';
 import 'package:kts/const/fonts.dart';
 import 'package:kts/screens/home_screen.dart';
+import 'package:kts/screens/teachers/teachers.dart';
+import 'package:kts/screens/teams/team.dart';
 import 'package:line_icons/line_icons.dart';
 
 class CustomBottomBar extends StatefulWidget {
@@ -28,14 +30,8 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
       'Likes',
       style: KtsFont.optionStyle,
     ),
-    Text(
-      'Search',
-      style: optionStyle,
-    ),
-    Text(
-      'Profile',
-      style: optionStyle,
-    ),
+    TeamScreen(),
+    TeacherScreen(),
   ];
 
   @override
@@ -68,16 +64,16 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
                   text: 'Home',
                 ),
                 GButton(
-                  icon: LineIcons.heart,
-                  text: 'Likes',
+                  icon: LineIcons.book,
+                  text: 'Magzine',
                 ),
                 GButton(
-                  icon: LineIcons.search,
-                  text: 'Search',
+                  icon: LineIcons.peopleCarry,
+                  text: 'Team',
                 ),
                 GButton(
                   icon: LineIcons.user,
-                  text: 'Profile',
+                  text: 'Faculty',
                 ),
               ],
               selectedIndex: _selectedIndex,

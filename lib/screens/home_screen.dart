@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:kts/Repo/repo.dart';
+import 'package:kts/screens/add_data.dart';
+import 'package:kts/screens/lock_screen.dart';
 import 'package:kts/widgets/achievement.dart';
 import 'package:kts/widgets/past_events.dart';
 import 'package:kts/widgets/upcoming_events.dart';
@@ -20,15 +22,28 @@ class HomeScreen extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
+            //logo
             Align(
               alignment: Alignment.topLeft,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: SizedBox(
-                    height: height * .15,
-                    child: Image.asset("assets/images/ktslogo.png")),
+                  height: height * .15,
+                  child: InkWell(
+                    child: Image.asset("assets/images/ktslogo.png"),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => LockScreen(),
+                        ),
+                      );
+                    },
+                  ),
+                ),
               ),
             ),
+            //animated text
             SizedBox(
               height: height * .1,
               child: AnimatedTextKit(
@@ -64,6 +79,7 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
+            // // upcoming events
             const Padding(
               padding: EdgeInsets.only(left: 10),
               child: Align(
@@ -78,26 +94,12 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
-            Padding(
-              padding: EdgeInsets.all(8.0),
-              child: InkWell(
-                child: CachedNetworkImage(
-                  imageUrl:
-                      "https://drive.google.com/uc?export=view&id=${Repo.upcomingEventsList[0]}",
-                  placeholder: (context, url) => const Center(
-                    child: CircularProgressIndicator(
-                      color: Colors.white,
-                    ),
-                  ),
-                  errorWidget: (context, url, error) => Icon(
-                    Icons.error,
-                    color: Colors.white,
-                  ),
-                ),
-                onTap: () {},
-              ),
+            UpcomingEvent(),
+            SizedBox(
+              height: height * .02,
             ),
 
+            /// Past Events
             const Padding(
               padding: EdgeInsets.only(left: 10),
               child: Align(
@@ -112,7 +114,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
-            // // past event
+
             SizedBox(
               height: height * .3,
               width: double.infinity,
@@ -134,7 +136,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
-            // // past event
+
             SizedBox(
               height: height * .3,
               width: double.infinity,

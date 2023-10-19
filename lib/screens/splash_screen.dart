@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:kts/Repo/repo.dart';
+import 'package:kts/screens/custom_bottom_navigation.dart';
 import 'package:kts/screens/home_screen.dart';
 import 'package:lottie/lottie.dart';
 
@@ -19,11 +20,13 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Repo.fetchUpcomingEventsData();
     Repo.fetchPastData();
-    Timer(Duration(seconds: 3), () {
+    Repo.fetchAchievement();
+
+    Timer(const Duration(seconds: 5), () {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => const HomeScreen(),
+          builder: (context) => CustomBottomBar(),
         ),
       );
     });

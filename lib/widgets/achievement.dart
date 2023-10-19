@@ -9,6 +9,7 @@ class Achievemnet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height * 1;
+    double width = MediaQuery.of(context).size.width * 1;
     return ScrollLoopAutoScroll(
       duration: const Duration(seconds: 115),
       scrollDirection: Axis.horizontal,
@@ -22,6 +23,8 @@ class Achievemnet extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: InkWell(
               child: CachedNetworkImage(
+                width: width * .8,
+                height: height * .3,
                 imageUrl:
                     "https://drive.google.com/uc?export=view&id=1qWhEU5yMe0kdRzHKu-7jaGM2ZjNFeKDV",
                 placeholder: (context, url) => const Center(

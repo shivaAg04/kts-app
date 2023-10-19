@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:kts/screens/add_data.dart';
 import 'package:kts/screens/custom_bottom_navigation.dart';
 import 'package:kts/screens/home_screen.dart';
 import 'package:kts/screens/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:kts/screens/teams/team.dart';
 import 'firebase_options.dart';
 
 void main() async {
